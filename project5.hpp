@@ -3,9 +3,10 @@
  * project5.hpp
  * Fall 2025
  *
- * Partner 1:
- * Partner 2:
- * Date:
+ * Partner 1: Alexa Hatcher
+ * Partner 2: Natalie Nardone
+ * Date: 12/11/25
+ * Acknowledgements: Office hours, mentor session
  */
 
 #ifndef PROJECT5_HPP_

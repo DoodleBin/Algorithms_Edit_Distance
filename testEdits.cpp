@@ -83,6 +83,8 @@ bool testCase(string &label, string &src, string &dest, int correctNumEdits,
         cout << endl;
     }
 
+   //x return false;
+
     // Fill the table.
     vector<int> table = ED(src, dest, false, useDP);
     if (verbosity) {
@@ -119,9 +121,18 @@ bool testCase(string &label, string &src, string &dest, int correctNumEdits,
     }
 
     // Check for correctness.
-    if ( dest == edited ) {
+    if ( dest == edited and numEdits == correctNumEdits) {
         return true;
     } else {
+        // Add some info for why failure...
+        if (verbosity) {
+            if (dest != edited) {
+                cout << "Failed test due to wrong edits." << endl;
+            }
+            if (numEdits != correctNumEdits) {
+                cout << "Failed test due to wrong table info." << endl;
+            }
+        }
         return false;
     }
 }
@@ -240,7 +251,7 @@ double compareRandStrings(int trials, int m, int sig, bool useASM,
  */
 int main(int argc, char* argv[]) {
     // Check for verbosity.
-    bool verbosity = false;
+    bool verbosity = true;
     for ( int ii=1; ii<argc; ii++ ) {
         if ( strcmp(argv[ii], "-v") == 0 ) {
             // Verbosity flag.
